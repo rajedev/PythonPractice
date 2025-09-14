@@ -1,0 +1,1 @@
+print("God knows All","Trust in God")
