@@ -97,3 +97,13 @@ match xName:
     case _:
         print("Invalid payment option, Please select valid payment option")
 '''
+
+#input_str = "Jaque Kallis"
+#print(f"{input_str[::-1]}")
+
+uValue = 10
+vValue = 3
+
+print(uValue%3)
+print(uValue//3)
+
