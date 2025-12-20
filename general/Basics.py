@@ -22,6 +22,7 @@ print(float(hasValue))
 complexInput = 3 + 10j
 print(complexInput)
 """
+from parso.python.tree import String
 
 userData = {
     "users": [{
@@ -101,9 +102,35 @@ match xName:
 #input_str = "Jaque Kallis"
 #print(f"{input_str[::-1]}")
 
-uValue = 10
+"""uValue = 10
 vValue = 3
 
 print(uValue%3)
 print(uValue//3)
 
+rValue = 20
+qValue = 30
+data1 = int(input("Enter a value: "))
+if data1>=20:
+    data="Test"
+else:
+    data = "tester"
+
+print(data)
+print(f"output = {rValue + qValue}") """
+
+def test_return()->tuple:
+    age=int(input("Enter a Age: "))
+    name=input("Enter a name:")
+    designation = input("Enter a designation:")
+    return age,name, designation
+
+# data = test_return()
+# print(data[0])
+# print(data[1])
+# print(data[2])
+
+a, n, desi = test_return()
+print(type(a))
+print(n)
+print(desi)
