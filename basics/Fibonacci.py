@@ -48,18 +48,18 @@ def fibonacci_simple3(no_of_values: int):
         first, second = second, first + second
 
 
-print(fibonacci_simple1(5))
-print(fibonacci_simple1_1(7))
-fibonacci_simple2(10)
-print()
-fibonacci_simple3(8)
-
-
 def fibonacci_recursive(n):
     if n <= 1:
         return n
     else:
         return fibonacci_recursive(n - 1) + fibonacci_recursive(n - 2)
 
-# for i in range(7):
-#    print(fibonacci_recursive(i), end=" ")  # 0 1 1 2 3 5 8 13 21 34
+if __name__ == "main":
+    # for i in range(7):
+    #    print(fibonacci_recursive(i), end=" ")  # 0 1 1 2 3 5 8 13 21 34
+
+    print(fibonacci_simple1(5))
+    print(fibonacci_simple1_1(7))
+    fibonacci_simple2(10)
+    print()
+    fibonacci_simple3(8)

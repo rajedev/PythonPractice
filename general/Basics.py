@@ -1,3 +1,11 @@
+from basics import Fibonacci as fibo, Vowels as vowel
+
+# from basics.Fibonacci import fibonacci_simple1
+
+fib = fibo.fibonacci_simple1(10)
+print(f"Fibonacci series: {fibo.fibonacci_simple1(int(input("Max. No. of Fibonacci: ")))}")
+print(f"No. of Vowels in the word: {vowel.vowels_count1(str(input("Enter any word:")))}")
+
 """print("God knows All", "Trust in God")
 print("UserId:", 123, "Username: Ragavan", "Age:", 23, sep="|")
 
@@ -22,7 +30,6 @@ print(float(hasValue))
 complexInput = 3 + 10j
 print(complexInput)
 """
-from parso.python.tree import String
 
 userData = {
     "users": [{
@@ -99,8 +106,8 @@ match xName:
         print("Invalid payment option, Please select valid payment option")
 '''
 
-#input_str = "Jaque Kallis"
-#print(f"{input_str[::-1]}")
+# input_str = "Jaque Kallis"
+# print(f"{input_str[::-1]}")
 
 """uValue = 10
 vValue = 3
@@ -119,18 +126,56 @@ else:
 print(data)
 print(f"output = {rValue + qValue}") """
 
-def test_return()->tuple:
-    age=int(input("Enter a Age: "))
-    name=input("Enter a name:")
+
+def test_return() -> tuple:
+    age = int(input("Enter a Age: "))
+    name = input("Enter a name:")
     designation = input("Enter a designation:")
-    return age,name, designation
+    return age, name, designation
+
 
 # data = test_return()
 # print(data[0])
 # print(data[1])
 # print(data[2])
 
-a, n, desi = test_return()
-print(type(a))
-print(n)
-print(desi)
+# a, n, desi = test_return()
+# print(type(a))
+# print(n)
+# print(desi)
+
+crm = {
+    "user": [{
+        "fname": "Rajesh",
+        "lname": "E",
+        "sports": ["Cricket", "Tennis"]
+    }, {
+        "fname": "Rajeevan",
+        "lname": "G",
+        "sports": ["Hockey", "Chess"]
+    }]
+}
+
+values = crm.get("user", "NA").append({
+    "ename": "Rajesh",
+    "eid": "E",
+    "erole": ["CTO", "Tech."]
+})
+# values1 = crm.get("user1", "NA")
+# print(values)
+# print(values1)
+# keys = crm.get("user")[0].keys()
+# for k in keys:
+#    print(crm.get("user")[0].get(k))
+
+# for k,v in crm.items():
+#     print(f"{k}:{v}")
+
+
+# num = 10
+# for value in range(2, num):
+#     print(value)
+#     if value == 3:
+#         break
+# else:
+#     print("for end")

@@ -10,8 +10,8 @@ class PaymentOptions(Enum):
     CRYPTOCURRENCY = 1006
 
 
-# pay_option:tuple = PaymentOptions.CREDIT_CARD.value
-# print(pay_option)
+pay_option= PaymentOptions.CREDIT_CARD.value
+print(pay_option)
 
 class AppUserTypes(Enum):
     ADMIN = (100, "CRUD", "admin")
@@ -25,9 +25,9 @@ class AppUserTypes(Enum):
         self.user_role = role
 
 
-# app_admin = AppUserTypes.USER
-# print(app_admin.user_role)
-# print(app_admin.code)
-# print(app_admin.permissions)
-# print(app_admin.user_role)
+app_admin = AppUserTypes.USER
+print(app_admin.user_role)
+print(app_admin.code)
+print(app_admin.permissions)
+print(app_admin.user_role)
 
