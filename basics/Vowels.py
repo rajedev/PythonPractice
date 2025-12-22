@@ -24,6 +24,5 @@ def vowels_count1(w: str):
     # return  len([c for c in w if c in "aeiou"])
     return sum(c in "aeiou" for c in w.lower())
 
-
-if __name__ == "main":
+if __name__ == "__main__":
     print(f"No. of Vowels in the word: {vowels_count1(str(input("Enter any word:")))}")

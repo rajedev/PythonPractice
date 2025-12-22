@@ -54,7 +54,7 @@ def fibonacci_recursive(n):
     else:
         return fibonacci_recursive(n - 1) + fibonacci_recursive(n - 2)
 
-if __name__ == "main":
+if __name__ == "__main__":
     # for i in range(7):
     #    print(fibonacci_recursive(i), end=" ")  # 0 1 1 2 3 5 8 13 21 34
 
