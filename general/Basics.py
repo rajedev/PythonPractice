@@ -1,10 +1,8 @@
-from basics import Fibonacci as fibo, Vowels as vowel
-
 # from basics.Fibonacci import fibonacci_simple1
 
-fib = fibo.fibonacci_simple1(10)
-print(f"Fibonacci series: {fibo.fibonacci_simple1(int(input("Max. No. of Fibonacci: ")))}")
-print(f"No. of Vowels in the word: {vowel.vowels_count1(str(input("Enter any word:")))}")
+# fib = fibo.fibonacci_simple1(10)
+# print(f"Fibonacci series: {fibo.fibonacci_simple1(int(input("Max. No. of Fibonacci: ")))}")
+# print(f"No. of Vowels in the word: {vowel.vowels_count1(str(input("Enter any word:")))}")
 
 """print("God knows All", "Trust in God")
 print("UserId:", 123, "Username: Ragavan", "Age:", 23, sep="|")
@@ -161,6 +159,7 @@ values = crm.get("user", "NA").append({
     "eid": "E",
     "erole": ["CTO", "Tech."]
 })
+
 # values1 = crm.get("user1", "NA")
 # print(values)
 # print(values1)
@@ -179,3 +178,93 @@ values = crm.get("user", "NA").append({
 #         break
 # else:
 #     print("for end")
+
+# is_even = "value is even" if int(input("Enter a number: ")) % 2 == 0 else "value is not even"
+# print(is_even)
+
+# def add_supported_country(countries: list) -> list:
+#     countries[1] = "India"
+#     countries[3][0] = "Brisbane"
+#     return countries
+#
+#
+# supported_country_list = ["France", "Germany", "Australia", ["sydney", "melbourne"]]
+# add_support_country = add_supported_country(supported_country_list.copy())
+# add_support_country_deep = add_supported_country(copy.deepcopy(supported_country_list))
+# add_support_country_deep.append("Brazil")
+# print(f"Old List: {supported_country_list}")
+# print(f"New List: {add_support_country}")
+# print(f"New List Deep: {add_support_country_deep}")
+
+# def test_fun(a: int, b: int) -> int:
+#     return a + b
+#
+# print(test_fun(10, 30))
+# print(test_fun(10,"teest")) # TypeError
+
+# s:set={"12","rt","tr","rt","12",13}
+# s.add("4234")
+# print(s)
+# u: tuple = ("testere","tes")
+# print(u[1])
+# y: dict = {"key1": "value1", "key2": "value2", "key3": {"key3_1": "value_3_1"}, "key4": [{"keyA4_1": "valueA4_1"}, ]}
+# x: list = ["tet", ["teste", "tes"], 12, 1.24, True, False, y]
+# print(x[6])
+# print(y)
+# print(type(s))
+# print(type(u))
+# print(type(y))
+# print(type(x))
+
+# def args_method(*user_args, **profile_args):
+#     print(f"User Args: {user_args} ; Type: {type(user_args)}")
+#     print(f"Profile Args: {profile_args} ; Type: {type(profile_args)}")
+#     list_of_vowels = [v for v in user_args if v in "AEIOUaeiou"]
+#     print(list_of_vowels)
+#
+# args_method("A","b","u","d", id="124", name="Ragavan",age = 34)
+
+# tup = (10,20,30,40)
+# *x,_,z =tup
+# print(x,z,sep=";")
+
+xValues = []
+for x in range(10):
+    xValues.append(x)
+
+yValues = [v for v in range(10)]
+
+# print(xValues)
+# print(yValues)
+
+# even = [en for en in range(1, 51) if en % 2 == 0]
+# print(even)
+
+# matrix = [[10, 20, 30], [40, 50, 60], [70, 80, 90]]
+# print(matrix)
+#
+# flat_list = []
+# for i_row in matrix:
+#     for i_num in i_row:
+#         flat_list.append(i_num)
+#
+# print(flat_list)
+# flat_list_1 = [i_num for i_row in matrix for i_num in i_row]
+# print(flat_list_1)
+
+def is_odd_or_even(value:int):
+     ans = "even" if value % 2 == 0 else "odd"
+     return f"{value} is " + ans
+    # if value %2 ==0:
+    #     return " is even"
+    # else:
+    #     return " is odd"
+
+odd_even_dict = {value: "is even" if value % 2 == 0 else "is odd" for value in range(1, 51)}
+odd_even_list = [f"{value} is even" if value % 2 == 0 else f"{value} is odd" for value in range(1, 51)]
+odd_even_list_1 = [is_odd_or_even(value) for value in range(1, 51)]
+even = [en for en in range(1, 51) if en % 2 == 0]
+#print(odd_even_dict)
+print(f"{odd_even_list_1=}")
+#print(even)
+
