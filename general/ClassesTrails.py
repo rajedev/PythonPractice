@@ -49,6 +49,8 @@ print(crequest1.cust_id)
 # deleting the variable
 # del crequest1.cust_id
 #crequest1.cust_name="tester"
+print(crequest1.cust_id)
+crequest1.cust_id=242
 
 # Name mangling
 print(crequest1._CustomerRequest__cust_id)
