@@ -252,19 +252,77 @@ yValues = [v for v in range(10)]
 # flat_list_1 = [i_num for i_row in matrix for i_num in i_row]
 # print(flat_list_1)
 
-def is_odd_or_even(value:int):
-     ans = "even" if value % 2 == 0 else "odd"
-     return f"{value} is " + ans
-    # if value %2 ==0:
-    #     return " is even"
-    # else:
-    #     return " is odd"
+# def is_odd_or_even(value:int):
+#      ans = "even" if value % 2 == 0 else "odd"
+#      return f"{value} is " + ans
+#     # if value %2 ==0:
+#     #     return " is even"
+#     # else:
+#     #     return " is odd"
+#
+# odd_even_dict = {value: "is even" if value % 2 == 0 else "is odd" for value in range(1, 51)}
+# odd_even_list = [f"{value} is even" if value % 2 == 0 else f"{value} is odd" for value in range(1, 51)]
+# odd_even_list_1 = [is_odd_or_even(value) for value in range(1, 51)]
+# even = [en for en in range(1, 51) if en % 2 == 0]
+# #print(odd_even_dict)
+# print(f"{odd_even_list_1=}")
+# #print(even)
 
-odd_even_dict = {value: "is even" if value % 2 == 0 else "is odd" for value in range(1, 51)}
-odd_even_list = [f"{value} is even" if value % 2 == 0 else f"{value} is odd" for value in range(1, 51)]
-odd_even_list_1 = [is_odd_or_even(value) for value in range(1, 51)]
-even = [en for en in range(1, 51) if en % 2 == 0]
-#print(odd_even_dict)
-print(f"{odd_even_list_1=}")
-#print(even)
+# def list_fun(ldata=None)->list:
+#     if ldata is None:
+#         ldata = []
+#     print(ldata)
+#     #if not ldata is None:
+#     ldata.append(100)
+#     return ldata
+#
+# print(list_fun([20]))
+# print(list_fun([30,40]))
+# print(list_fun())
+# print(list_fun())
 
+# xvalue: int | None = None
+# yvalue: int | None = 32
+#
+# print("Yes" if xvalue is None else "No")
+# print("Yes" if yvalue is None else "No")
+
+from typing import Annotated, Literal
+
+from pydantic import Field, BaseModel, ConfigDict
+
+skill_validation_annotation = Annotated[str, Field(min_length=3, max_length=5)]
+
+class Userv1(BaseModel):
+    model_config = ConfigDict(validate_assignment=True)
+    u_name: Annotated[str, Field(min_length=3, max_length=12)]
+    u_age: Annotated[int, Field(ge=15, le=60)] = 15
+    u_dept: Literal["prod", "mark.", "fin."] = "fin."
+    e_skills: Annotated[list[skill_validation_annotation], Field(default_factory=list, min_length=3, max_length=10)]
+
+
+# @dataclass()
+# class Employee:
+#     e_name: str
+#     e_dept: Literal["Prod", "Marketing", "Finance"] = "Prod"
+
+
+# e1 = Employee("Iyyanar", "Manuf.")
+# print(e1)
+
+try:
+    user1 = Userv1(u_name="sss" * 3, u_dept="prod", e_skills=["t2412", "t" * 5, "h" * 3])
+    print(user1)
+    # user1.u_age = 12
+    # print(user1)
+except Exception as e:
+    print(e)
+
+# try:
+#     user2 = Userv1(u_name="ggg" * 3, u_age=18)
+#     print(user2)
+# except Exception as e:
+#     print(e)
+
+# print(user.model_dump())
+# print(user.model_dump_json(indent=2))
