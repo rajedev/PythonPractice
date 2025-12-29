@@ -28,6 +28,9 @@ print(float(hasValue))
 complexInput = 3 + 10j
 print(complexInput)
 """
+import random
+
+from annotated_types import MinLen, MaxLen
 
 userData = {
     "users": [{
@@ -289,13 +292,21 @@ yValues = [v for v in range(10)]
 
 from typing import Annotated, Literal
 
-from pydantic import Field, BaseModel, ConfigDict
+from pydantic import Field, BaseModel, ConfigDict, AfterValidator
 
 skill_validation_annotation = Annotated[str, Field(min_length=3, max_length=5)]
 
+
+def validation(v: str) -> str:
+    if v == "username":
+        return f"u{random.randint(1, 99)}"
+    return v
+
+
 class Userv1(BaseModel):
-    model_config = ConfigDict(validate_assignment=True)
-    u_name: Annotated[str, Field(min_length=3, max_length=12)]
+    model_config = ConfigDict(validate_assignment=True, validate_by_name=True)
+    # u_name: Annotated[str, Field(min_length=3, max_length=5), AfterValidator(validation)]
+    u_name: Annotated[str, Field(alias="username"), MinLen(5), MaxLen(12), AfterValidator(validation)]
     u_age: Annotated[int, Field(ge=15, le=60)] = 15
     u_dept: Literal["prod", "mark.", "fin."] = "fin."
     e_skills: Annotated[list[skill_validation_annotation], Field(default_factory=list, min_length=3, max_length=10)]
@@ -309,14 +320,23 @@ class Userv1(BaseModel):
 
 # e1 = Employee("Iyyanar", "Manuf.")
 # print(e1)
-
-try:
-    user1 = Userv1(u_name="sss" * 3, u_dept="prod", e_skills=["t2412", "t" * 5, "h" * 3])
-    print(user1)
-    # user1.u_age = 12
-    # print(user1)
-except Exception as e:
-    print(e)
+# try:
+#     user1 = Userv1(u_name="username1", u_dept="prod", e_skills=["t2412", "t" * 5, "h" * 3])
+#     print(user1)
+#     user_dict = user1.model_dump(by_alias=True)
+#
+#     # print(user_dict)
+#     # user2 = Userv1(**user_dict)
+#     # print(user2)
+#
+#     user_json = user1.model_dump_json()
+#     print(user_json)
+#     user3 = Userv1.model_validate_json(user_json)
+#     print(user3)
+#     # user1.u_age = 12
+#     # print(user1)
+# except Exception as e:
+#     print(e)
 
 # try:
 #     user2 = Userv1(u_name="ggg" * 3, u_age=18)
@@ -326,3 +346,17 @@ except Exception as e:
 
 # print(user.model_dump())
 # print(user.model_dump_json(indent=2))
+
+import os
+from dotenv import load_dotenv, find_dotenv
+
+local_env_path = find_dotenv()
+print(local_env_path)
+# load_dotenv('../.env')
+load_dotenv(override=True)
+
+API_KEY = os.getenv("OPEN_API_KEY")
+USERNAME = os.getenv("USERNAME")
+PASSWORD = os.getenv("PWD")
+print(f"API Key: {API_KEY} ; Username: {USERNAME} ; Password: {PASSWORD}")
+print(os.getenv("USER_NOTE"))
