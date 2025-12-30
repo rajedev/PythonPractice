@@ -163,6 +163,7 @@ values = crm.get("user", "NA").append({
     "erole": ["CTO", "Tech."]
 })
 
+
 # values1 = crm.get("user1", "NA")
 # print(values)
 # print(values1)
@@ -185,19 +186,24 @@ values = crm.get("user", "NA").append({
 # is_even = "value is even" if int(input("Enter a number: ")) % 2 == 0 else "value is not even"
 # print(is_even)
 
-# def add_supported_country(countries: list) -> list:
-#     countries[1] = "India"
-#     countries[3][0] = "Brisbane"
-#     return countries
-#
-#
+
+def add_supported_country(countries: list) -> list:
+    countries[0] = "Africa"
+    countries[1] = "India"
+    countries[3][1] = "Brisbane"
+    return countries
+
+
 # supported_country_list = ["France", "Germany", "Australia", ["sydney", "melbourne"]]
-# add_support_country = add_supported_country(supported_country_list.copy())
-# add_support_country_deep = add_supported_country(copy.deepcopy(supported_country_list))
-# add_support_country_deep.append("Brazil")
+# add_support_country = supported_country_list.copy()
+# print(f"After updating new shallow b4change: {add_support_country}")
+# sha_support_country=add_supported_country(add_support_country)
+# print(f"After updating new shallow {sha_support_country}")
+# # add_support_country_deep = add_supported_country(copy.deepcopy(supported_country_list))
+# # add_support_country_deep.append("Brazil")
 # print(f"Old List: {supported_country_list}")
-# print(f"New List: {add_support_country}")
-# print(f"New List Deep: {add_support_country_deep}")
+# #print(f"New List: {add_support_country}")
+# # print(f"New List Deep: {add_support_country_deep}")
 
 # def test_fun(a: int, b: int) -> int:
 #     return a + b
@@ -347,16 +353,137 @@ class Userv1(BaseModel):
 # print(user.model_dump())
 # print(user.model_dump_json(indent=2))
 
-import os
-from dotenv import load_dotenv, find_dotenv
+# import os
+# from dotenv import load_dotenv, find_dotenv
+#
+# local_env_path = find_dotenv()
+# print(local_env_path)
+# # load_dotenv('../.env')
+# load_dotenv(override=True)
+#
+# API_KEY = os.getenv("OPEN_API_KEY")
+# USERNAME = os.getenv("USERNAME")
+# PASSWORD = os.getenv("PWD")
+# print(f"API Key: {API_KEY} ; Username: {USERNAME} ; Password: {PASSWORD}")
+# print(os.getenv("USER_NOTE"))
 
-local_env_path = find_dotenv()
-print(local_env_path)
-# load_dotenv('../.env')
-load_dotenv(override=True)
 
-API_KEY = os.getenv("OPEN_API_KEY")
-USERNAME = os.getenv("USERNAME")
-PASSWORD = os.getenv("PWD")
-print(f"API Key: {API_KEY} ; Username: {USERNAME} ; Password: {PASSWORD}")
-print(os.getenv("USER_NOTE"))
+# value1 = [[11,12,13],[14,15,16],[17,18,19]]
+# value2 = value1.copy()
+# #value2.append([20,21,22])
+# value1[2]=[20,21,22]
+# #value1[2][2]=98
+# value1.append([53,35,21])
+# #value1[0]=[444,42,21]
+# #value2[0][2]=24
+# #value1.append([20,21,22])
+# #value1[0]=[222,333,444]
+# print(value1)
+# print(value2)
+
+# from collections import namedtuple
+#
+# rgbcolor = namedtuple("rgb", ["red", "blue", "green"])
+# rgb = rgbcolor(red=120, blue=180, green=None)
+# rgb1 = rgbcolor(red="oneTwenty120", blue="180", green=None)
+#
+# print(rgb.red)
+# print(rgb1.red)
+# print(rgb._asdict())
+# print(json.dumps(rgb._asdict(), indent=2))
+# print(json.dumps(rgb1._asdict(), indent=2))
+# print(rgb._replace(green=112))
+# print(rgb)
+# # rgb.green=24 # error
+#
+# from typing import NamedTuple
+#
+#
+# class RGBColor(NamedTuple):
+#     r: int
+#     g: int
+#     b: int
+#
+#
+# colors = RGBColor(r=42, g=52, b=13)
+# print(colors.r)
+# # colors.b = 13  # error
+# # print(colors.b)
+# print(colors._asdict())
+# print(json.dumps(colors._asdict(), indent=2))
+
+from typing import TypedDict, Required, ReadOnly
+
+
+# class ExamCenter(TypedDict, total=False):
+#     center_id: Required[int]
+#     center_name: str
+#     center_location: ReadOnly[str]
+#     center_staffs: list
+#
+#
+# center2: ExamCenter = {'center_id1': 124, 'center_name': 'voc', 'center_staffs': ["z", "b", "c"]}
+#
+# #print(center2["center_id1"])
+# center2["center_location"] = "Test"
+# print(center2)
+#
+# center1 = ExamCenter(center_id=125, center_name="VOC", center_location="PY",
+#                      center_staffs=["Sivam", "Anbu", "Gaya"])
+#
+# center1["center_name"] = "Calve college"
+# print(center1)
+# ce_dict = center1.items()
+# # print(json.dumps(ce_dict, indent=2))
+
+# class Stock:
+#     def __init__(self, stock_id: int = 0, owner_name:str="teste"):
+#         self.stock_id = stock_id
+#         self.__owner_name=owner_name
+#
+#
+# class Finance:
+#
+#     def __init__(self, sw_id: int, sw_name: str):
+#         self._finance_sw_id: int = sw_id
+#         self.finance_sw_name: str = sw_name
+#
+#     def _secret_protected_method(self):
+#         print("I'm from protected method from finance")
+#
+#     @property
+#     def finance_sw_id(self):
+#         return self._finance_sw_id
+#
+#
+# #class Management(Finance, Stock):
+# class Management(Finance):
+#
+#     def __init__(self, sid: int, report_sw: str):
+#         super().__init__(sw_id=sid, sw_name="Salesforce")
+#         #Finance.__init__(self,sw_id=sw_id, sw_name="SAP")
+#         #Stock.__init__(self,stock_id=10000)
+#         self.report_sw_name = report_sw
+#         #self.stock_id=1001
+#
+#     def __logic_loads_here(self):
+#         print("management secret logics")
+#
+#     def triggering_logic(self, trigger:bool):
+#         if trigger:
+#             self._secret_protected_method()
+#             self.__logic_loads_here()
+#         else:
+#             print("logic is not triggered")
+
+
+# manage = Management(sid=121, report_sw="InHouse-Jenie")
+# #manage._secret_protected_method()
+# manage.triggering_logic(True)
+# #print(manage._Stock__owner_name) # Name mangling bec. it is private-pesudo variable
+# #print(manage.finance_sw_id, manage.report_sw_name, manage.finance_sw_name, manage.stock_id, sep=" ; ")
+# fina1 = Finance(sw_id=124, sw_name="Tally")
+# print(fina1.finance_sw_name)
+# print(fina1.finance_sw_id)
+#
+# print(dir(manage))
