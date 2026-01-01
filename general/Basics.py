@@ -29,8 +29,11 @@ complexInput = 3 + 10j
 print(complexInput)
 """
 import random
+from enum import EnumType
+from platform import uname
 
 from annotated_types import MinLen, MaxLen
+from typing_extensions import get_args
 
 userData = {
     "users": [{
@@ -414,7 +417,6 @@ class Userv1(BaseModel):
 
 from typing import TypedDict, Required, ReadOnly
 
-
 # class ExamCenter(TypedDict, total=False):
 #     center_id: Required[int]
 #     center_name: str
@@ -487,3 +489,77 @@ from typing import TypedDict, Required, ReadOnly
 # print(fina1.finance_sw_id)
 #
 # print(dir(manage))
+
+# from string import Template
+# from typing import Literal
+#
+# t = Template("Hi $uname, welcome to $city")
+# welcome_str = t.substitute(uname="Murugan", city="Puducherry")
+# print(welcome_str)
+
+# print("Hi {}, welcome to {}".format("Muru", "Chennai"))
+# print("Hi {uname}, welcome to {city}".format(uname="Kandan", city="Madurai"))
+#
+# LAB_DATA = Literal["x-ray", "ecg", "bp", "sugar"]
+# lab_data = "eye-checkup"
+#
+# if lab_data not in get_args(LAB_DATA):
+#     print(f"{lab_data} not exist")
+# else:
+#     print(f"{lab_data} test can be taken here")
+
+# def song(lyric:str):
+#     print(f"#@#@#@.... {lyric} #@#@#@....")
+#
+# movie = song
+# del song
+# movie("la..lah..laaa..lah.. ha ah")
+# #song("tester.... ") # error bec. function deleted
+# movie("oo..la..oo...lah..lla..laaa..lah.. ha ah")
+# print(movie.__name__)
+
+from enum import Enum
+
+
+class SongType(Enum):
+    HERO_INTRO = 1
+    HERO_BG_SONG = 2
+    CLIMAX_BG_SONG = 3
+    VILLAN_BG_SONG = 4
+
+
+def song_lyrics(s_type: SongType) -> str:
+    # if s_type is SongType.HERO_INTRO:
+    #     return "alalla lalalal"
+    # elif s_type is SongType.HERO_BG_SONG:
+    #     return "hhahahahhaha"
+    # elif s_type is SongType.CLIMAX_BG_SONG:
+    #     return "ohhhohh ho"
+    # else:
+    #     return "uhohuhoh"
+
+    # match s_type:
+    #     case SongType.HERO_BG_SONG:
+    #         return "hhahahahhaha"
+    #     case SongType.CLIMAX_BG_SONG:
+    #         return "ohhhohh ho"
+    #     case SongType.HERO_INTRO:
+    #         return "alalla lalalal"
+    #     case _:
+    #         return "uhohuhoh"
+
+    songs: dict[SongType, str] = {
+        SongType.HERO_BG_SONG: "hhahahahhaha",
+        SongType.CLIMAX_BG_SONG: "ohhhohh ho",
+        SongType.HERO_INTRO: "alalla lalalal"
+    }
+
+    return songs.get(s_type, "uhohuhoh")
+
+
+def film(l_song):
+    situ_song: str = l_song(SongType.HERO_INTRO)
+    print(f"hero intro song: {situ_song}")
+
+
+film(song_lyrics)
