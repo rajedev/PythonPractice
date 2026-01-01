@@ -518,48 +518,61 @@ from typing import TypedDict, Required, ReadOnly
 # movie("oo..la..oo...lah..lla..laaa..lah.. ha ah")
 # print(movie.__name__)
 
-from enum import Enum
+# from enum import Enum
+#
+#
+# class SongType(Enum):
+#     HERO_INTRO = 1
+#     HERO_BG_SONG = 2
+#     CLIMAX_BG_SONG = 3
+#     VILLAN_BG_SONG = 4
+#
+#
+# def song_lyrics(s_type: SongType) -> str:
+#     # if s_type is SongType.HERO_INTRO:
+#     #     return "alalla lalalal"
+#     # elif s_type is SongType.HERO_BG_SONG:
+#     #     return "hhahahahhaha"
+#     # elif s_type is SongType.CLIMAX_BG_SONG:
+#     #     return "ohhhohh ho"
+#     # else:
+#     #     return "uhohuhoh"
+#
+#     # match s_type:
+#     #     case SongType.HERO_BG_SONG:
+#     #         return "hhahahahhaha"
+#     #     case SongType.CLIMAX_BG_SONG:
+#     #         return "ohhhohh ho"
+#     #     case SongType.HERO_INTRO:
+#     #         return "alalla lalalal"
+#     #     case _:
+#     #         return "uhohuhoh"
+#
+#     songs: dict[SongType, str] = {
+#         SongType.HERO_BG_SONG: "hhahahahhaha",
+#         SongType.CLIMAX_BG_SONG: "ohhhohh ho",
+#         SongType.HERO_INTRO: "alalla lalalal"
+#     }
+#
+#     return songs.get(s_type, "uhohuhoh")
+#
+#
+# def film(l_song):
+#     situ_song: str = l_song(SongType.HERO_INTRO)
+#     print(f"hero intro song: {situ_song}")
+#
+#
+# film(song_lyrics)
 
+movie_list = ["Tourist_Family", "uv" ,"Eleven", "Dude","z" ,"Margon", "Parasakthi"]
 
-class SongType(Enum):
-    HERO_INTRO = 1
-    HERO_BG_SONG = 2
-    CLIMAX_BG_SONG = 3
-    VILLAN_BG_SONG = 4
-
-
-def song_lyrics(s_type: SongType) -> str:
-    # if s_type is SongType.HERO_INTRO:
-    #     return "alalla lalalal"
-    # elif s_type is SongType.HERO_BG_SONG:
-    #     return "hhahahahhaha"
-    # elif s_type is SongType.CLIMAX_BG_SONG:
-    #     return "ohhhohh ho"
-    # else:
-    #     return "uhohuhoh"
-
-    # match s_type:
-    #     case SongType.HERO_BG_SONG:
-    #         return "hhahahahhaha"
-    #     case SongType.CLIMAX_BG_SONG:
-    #         return "ohhhohh ho"
-    #     case SongType.HERO_INTRO:
-    #         return "alalla lalalal"
-    #     case _:
-    #         return "uhohuhoh"
-
-    songs: dict[SongType, str] = {
-        SongType.HERO_BG_SONG: "hhahahahhaha",
-        SongType.CLIMAX_BG_SONG: "ohhhohh ho",
-        SongType.HERO_INTRO: "alalla lalalal"
-    }
-
-    return songs.get(s_type, "uhohuhoh")
-
-
-def film(l_song):
-    situ_song: str = l_song(SongType.HERO_INTRO)
-    print(f"hero intro song: {situ_song}")
-
-
-film(song_lyrics)
+#movie_list.sort()
+#movie_list.sort(reverse=True)
+# new_movie_list =sorted(movie_list)
+# print(movie_list)
+# print(new_movie_list)
+# new_movie_list =sorted(movie_list, key = lambda l:max(l))
+# print(new_movie_list)
+# print("#" * 20)
+# for s in new_movie_list:
+#     print(f" {s} = max: {max(s)}")
