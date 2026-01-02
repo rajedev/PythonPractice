@@ -564,7 +564,7 @@ from typing import TypedDict, Required, ReadOnly
 #
 # film(song_lyrics)
 
-movie_list = ["Tourist_Family", "uv" ,"Eleven", "Dude","z" ,"Margon", "Parasakthi"]
+#movie_list = ["Tourist_Family", "uv" ,"Eleven", "Dude","z" ,"Margon", "Parasakthi"]
 
 #movie_list.sort()
 #movie_list.sort(reverse=True)
