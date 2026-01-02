@@ -29,11 +29,8 @@ complexInput = 3 + 10j
 print(complexInput)
 """
 import random
-from enum import EnumType
-from platform import uname
 
 from annotated_types import MinLen, MaxLen
-from typing_extensions import get_args
 
 userData = {
     "users": [{
@@ -415,7 +412,6 @@ class Userv1(BaseModel):
 # print(colors._asdict())
 # print(json.dumps(colors._asdict(), indent=2))
 
-from typing import TypedDict, Required, ReadOnly
 
 # class ExamCenter(TypedDict, total=False):
 #     center_id: Required[int]
@@ -564,10 +560,10 @@ from typing import TypedDict, Required, ReadOnly
 #
 # film(song_lyrics)
 
-#movie_list = ["Tourist_Family", "uv" ,"Eleven", "Dude","z" ,"Margon", "Parasakthi"]
+# movie_list = ["Tourist_Family", "uv" ,"Eleven", "Dude","z" ,"Margon", "Parasakthi"]
 
-#movie_list.sort()
-#movie_list.sort(reverse=True)
+# movie_list.sort()
+# movie_list.sort(reverse=True)
 # new_movie_list =sorted(movie_list)
 # print(movie_list)
 # print(new_movie_list)
@@ -576,3 +572,17 @@ from typing import TypedDict, Required, ReadOnly
 # print("#" * 20)
 # for s in new_movie_list:
 #     print(f" {s} = max: {max(s)}")
+
+
+def unpack_fun(ex, y, z):
+    print(F"{ex=} ; {y=} ; {z=}")
+
+
+unpack_fun(ex=10, y=20, z=30)
+unpack_fun(*(89, 90, 30))
+# unpack_fun(*(89,90,30,78)) ## error no. of positional args is not matching
+unpack_fun(*[89, 90, 30])
+# unpack_fun(*[89,90,30,90,89]) ## error no. of positional args is not matching
+unpack_fun(**{"x": "2", "y": "21", "z": "42"})
+# unpack_fun(**{"x": "2", "y": "21", "z": "42","d":24}) # error due to additional keyword
+# unpack_fun(**{"xa": "2", "y": "21", "z": "42"})  # key should match the variable name
