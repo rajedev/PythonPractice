@@ -574,15 +574,31 @@ class Userv1(BaseModel):
 #     print(f" {s} = max: {max(s)}")
 
 
-def unpack_fun(ex, y, z):
-    print(F"{ex=} ; {y=} ; {z=}")
+# def unpack_fun(ex, y, z):
+#     print(F"{ex=} ; {y=} ; {z=}")
+#
+#
+# unpack_fun(ex=10, y=20, z=30)
+# unpack_fun(*(89, 90, 30))
+# # unpack_fun(*(89,90,30,78)) ## error no. of positional args is not matching
+# unpack_fun(*[89, 90, 30])
+# # unpack_fun(*[89,90,30,90,89]) ## error no. of positional args is not matching
+# unpack_fun(**{"x": "2", "y": "21", "z": "42"})
+# # unpack_fun(**{"x": "2", "y": "21", "z": "42","d":24}) # error due to additional keyword
+# # unpack_fun(**{"xa": "2", "y": "21", "z": "42"})  # key should match the variable name
 
+list_value = [10, 203, 90, 84, 52]
+# print(list_value)
 
-unpack_fun(ex=10, y=20, z=30)
-unpack_fun(*(89, 90, 30))
-# unpack_fun(*(89,90,30,78)) ## error no. of positional args is not matching
-unpack_fun(*[89, 90, 30])
-# unpack_fun(*[89,90,30,90,89]) ## error no. of positional args is not matching
-unpack_fun(**{"x": "2", "y": "21", "z": "42"})
-# unpack_fun(**{"x": "2", "y": "21", "z": "42","d":24}) # error due to additional keyword
-# unpack_fun(**{"xa": "2", "y": "21", "z": "42"})  # key should match the variable name
+for index in range(0, len(list_value)):
+    print(f"index: {index} ; data: {list_value[index]}")
+
+dic_value: dict = {"x": 20, "y": 290}
+
+for k, v in dic_value.items():
+    print(f"index: {k} ; data: {v}")
+
+print(range(0, len(list_value)))
+
+print(list_value[:3])    # first 3 elements
+print(list_value[3:])    # rest
