@@ -587,18 +587,22 @@ class Userv1(BaseModel):
 # # unpack_fun(**{"x": "2", "y": "21", "z": "42","d":24}) # error due to additional keyword
 # # unpack_fun(**{"xa": "2", "y": "21", "z": "42"})  # key should match the variable name
 
-list_value = [10, 203, 90, 84, 52]
-# print(list_value)
+# list_value = [10, 203, 90, 84, 52]
+# # print(list_value)
+#
+# for index in range(0, len(list_value)):
+#     print(f"index: {index} ; data: {list_value[index]}")
+#
+# dic_value: dict = {"x": 20, "y": 290}
+#
+# for k, v in dic_value.items():
+#     print(f"index: {k} ; data: {v}")
+#
+# print(range(0, len(list_value)))
+#
+# print(list_value[:3])    # first 3 elements
+# print(list_value[3:])    # rest
 
-for index in range(0, len(list_value)):
-    print(f"index: {index} ; data: {list_value[index]}")
-
-dic_value: dict = {"x": 20, "y": 290}
-
-for k, v in dic_value.items():
-    print(f"index: {k} ; data: {v}")
-
-print(range(0, len(list_value)))
-
-print(list_value[:3])    # first 3 elements
-print(list_value[3:])    # rest
+cate = "hh"
+is_boolean = cate in ["Spiritual", "Crime"]
+print(is_boolean)
