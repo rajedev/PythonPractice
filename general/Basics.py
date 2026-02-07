@@ -606,3 +606,39 @@ class Userv1(BaseModel):
 cate = "hh"
 is_boolean = cate in ["Spiritual", "Crime"]
 print(is_boolean)
+
+
+## dictionary check
+sam_dict = {
+    "eee":{
+        "dept":{
+            "student":23,
+            "faculty":"21"
+        },
+        "metainfo":{
+            "fee":220901,
+            "university_code":"2EEE2342"
+        }
+    },
+    "ece":{
+        "student":1,
+        "faculty":"2"
+    },
+    "mec":{
+        "student":3,
+        "faculty":"11"
+    }
+}
+user_value ="eee" # ece / mec
+if user_value in sam_dict and sam_dict[user_value]:
+    data = sam_dict[user_value]
+    print(data)
+    is_dept = "dept" in data
+    print(is_dept)
+else:
+    print("no value")
+
+# if hasattr(sam_dict["eee"], "student"):
+#     print(sam_dict["eee"])
+# else:
+#     print("no value")
