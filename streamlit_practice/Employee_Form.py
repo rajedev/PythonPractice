@@ -63,6 +63,7 @@ def employee_form():
 
             # Display submitted information in a nice format
             with st.expander("View Submitted Details", expanded=True):
+                st.json(employee_info.model_dump())
                 col_a, col_b = st.columns(2)
                 with col_a:
                     st.write("**Name:**", employee_info.name)
