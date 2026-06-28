@@ -5,6 +5,19 @@ class CustomerRequest:
         self._cust_name = cname
         self.cust_contact = cphone
         self.work_request = crequest
+        self.__state_location: str = ""
+
+    @property
+    def state_location(self):
+        return self.__state_location
+
+    @state_location.setter
+    def state_location(self, state: str):
+        self.__state_location = state
+
+    @state_location.getter
+    def state_location(self):
+        return f"State is {self.__state_location}"
 
     @property
     def cust_name(self):
@@ -37,6 +50,7 @@ class CustomerRequest:
     @staticmethod
     def user_status(obj):
         print(f"User's id: {obj.__cust_id}")
+        print(f"User's id: {obj.__state_location}")
 
 
 crequest1 = CustomerRequest("Rajeevan", "9876543210", "Leaking pipe in kitchen", cid=1242)
@@ -68,3 +82,8 @@ CustomerRequest.user_status(crequest1)
 # print(crequest1.cust_name)
 # crequest1.cust_name = "Rajeevan"
 # print(crequest1.cust_name)
+
+crequest1.state_location="PY"
+print(f"Customer request from - {crequest1.state_location}")
+
+print(crequest1.__dict__)

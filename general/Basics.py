@@ -32,6 +32,8 @@ import random
 
 from annotated_types import MinLen, MaxLen
 
+from general.Basics_ import test_1
+
 userData = {
     "users": [{
         "username": "Ragu",
@@ -642,4 +644,8 @@ else:
 #     print(sam_dict["eee"])
 # else:
 #     print("no value")
+
+from Basics_ import test_1
+
+test_1()
 
