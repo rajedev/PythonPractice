@@ -415,18 +415,20 @@ class Userv1(BaseModel):
 # print(json.dumps(colors._asdict(), indent=2))
 
 
-# class ExamCenter(TypedDict, total=False):
-#     center_id: Required[int]
-#     center_name: str
-#     center_location: ReadOnly[str]
-#     center_staffs: list
+from typing import TypedDict, Required, ReadOnly
+
+class ExamCenter(TypedDict, total=False):
+    center_id: Required[int]
+    center_name: str
+    center_location: ReadOnly[str]
+    center_staffs: list
 #
 #
-# center2: ExamCenter = {'center_id1': 124, 'center_name': 'voc', 'center_staffs': ["z", "b", "c"]}
+center2: ExamCenter = {'center_id1': 124, 'center_name': 'voc', 'center_staffs': ["z", "b", "c"]}
 #
-# #print(center2["center_id1"])
-# center2["center_location"] = "Test"
-# print(center2)
+#print(center2["center_id1"])
+center2["center_location"] = "Testerrrr"
+print(center2)
 #
 # center1 = ExamCenter(center_id=125, center_name="VOC", center_location="PY",
 #                      center_staffs=["Sivam", "Anbu", "Gaya"])
