@@ -28,7 +28,7 @@ print(u_object_from_json.user, u_object_from_json.take_time)
 
 obj_adapter = TypeAdapter(UserInfo)
 
-u_object_from_adapter = obj_adapter.validate_python(u_object)
+u_object_from_adapter = obj_adapter.validate_python(user_obj)
 u_object_json_from_adapter = obj_adapter.validate_json(user_json_obj)
 
 print(u_object_json_from_adapter.user, u_object_json_from_adapter.take_time)
